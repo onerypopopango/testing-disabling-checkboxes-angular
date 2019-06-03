@@ -1,0 +1,26 @@
+<hello name="{{ name }}"></hello>
+
+<table class="table">
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td style="text-align:center">
+        <div class="checkbox">
+          <label>
+            <input
+              type="checkbox"
+              value="{{ order.id }}"
+              ng-model="selected"
+              (change)="onChange($event)"
+              [disabled]="getDisabledStatus(name)"
+            />
+            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+            {{ order.displayName }}
+          </label>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>{{ checkboxCurrent }}<p>
+<p>{{ disableCheckbox }}</p>
