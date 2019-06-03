@@ -10,10 +10,12 @@ export class AppComponent  {
   checkboxCurrent: number = 0;
   checkboxLimit: number = 3;
   disableCheckbox: boolean = false;
+  checkedIds: number[] = [];
 
-  getDisabledStatus(name):boolean {
-    if ( (name.value && this.checkboxCurrent == this.checkboxLimit)
-      || (this.checkboxCurrent != this.checkboxLimit) ){
+  getDisabledStatus(order):boolean {
+    if( (this.checkboxCurrent != this.checkboxLimit) ||    
+      ( (this.checkboxCurrent == this.checkboxLimit) && 
+      (this.checkedIds.indexOf(order.id.toString()) != -1) )){
         return false;
       }else {
         return true;
@@ -29,11 +31,13 @@ export class AppComponent  {
   ];
 
   onChange(event: any) {
-    //this.length = order.checked.length();
     if (event.srcElement.checked) {
       this.checkboxCurrent++;
+      this.checkedIds.push(event.target.value);
     }else{
       this.checkboxCurrent--;
+      let index = this.checkedIds.indexOf(event.target.value);
+      this.checkedIds.splice(index, 1);
     }
   }
 
