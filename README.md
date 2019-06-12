@@ -2,4 +2,4 @@
 
 Done natively in Angular2+, no additional dependencies required.
 
-[StackBlitz link ⚡️](https://stackblitz.com/edit/angular-ladqld)
+[StackBlitz link ⚡️](https://stackblitz.com/edit/disabling-checkboxes-with-limits-ng)
